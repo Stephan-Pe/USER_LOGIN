@@ -1,0 +1,125 @@
+html {
+    height: 100%;
+    width: 100vw;
+}
+body {
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #876ED7;
+    font-size: 20px;
+    font-family: sans-serif;
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: flex-start;
+}
+.member {
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(to bottom right, #0000cc 0%, #33ccff 100%);
+}
+p {
+    margin: 10px;
+    font-size: 26px;
+}
+header li a {
+    text-decoration: none;
+    color: wheat;
+    font-size: 20px;
+}
+#logo {
+    width: 80px;
+    position: absolute;
+    top: 20px;
+    left: 50px;
+}
+header {
+    height: 140px;
+    width: 100vw;
+    background-color: #412C84;
+    border-bottom: 2px solid silver;
+}
+ul {
+    margin-top: 0;
+    margin-left: 40px;
+    width: 45%;
+    display: flex;
+    justify-content: space-evenly;
+}
+ul li {
+    list-style: none;
+    font-size: 20px;
+    font-family: sans-serif;
+    margin: 40px 0 10px 0;
+}
+.form {
+    position: absolute;
+    display: flex;
+    top: 60px;
+    right: 40px;
+}
+.form input, a {
+    font-size: 20px;
+    margin: 0 10px 0 0;
+    border-radius: 6px;
+    padding-left: 10px;
+}
+.form a {
+    text-decoration: none;
+    color: wheat;
+}
+.form button {
+    font-size: 24px;
+    color: wheat;
+    background-color: #200772;
+    border: 2px solid #412C84;
+    border-radius: 6px;
+    margin: 0 10px 0 0;
+}
+.answer {
+    background-color:	rgba(106, 72, 215, 0.4);
+    width: 30vw;
+    height: 200px;
+    padding-top: 20px;
+    border-radius: 8px;
+    box-shadow: 1px 2px 6px silver;
+    margin: 20px;
+}
+.answer nav a {
+    font-size: 2rem;
+    text-decoration: none;
+    color: wheat;
+    padding: 4px;
+    background-color: #200772;
+    box-shadow: 2px 2px 6px silver;
+}
+::placeholder {
+    padding-left: 10px;
+}
+/**signup page**************************/
+
+.form-signup {
+    width: 200px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0 auto;
+}
+.form-signup input {
+    margin: 20px 0 20px 0;
+    border-radius: 6px;
+    padding-left: 10px;
+}
+.form-signup button {
+    font-size: 30px;
+    width: 170px;
+    color: wheat;
+    background-color: darkblue;
+    border-radius: 6px;
+    margin: 30px 0 30px 0;
+}
