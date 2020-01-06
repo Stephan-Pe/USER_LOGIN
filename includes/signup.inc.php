@@ -1,13 +1,14 @@
 <?php
+// check if user comes through signup page
 if (isset($_POST['signup-submit'])) {
 
-    require 'dbh.inc.php';
+    require 'dbh.inc.php'; // make connection
 
     $username = $_POST['uid'];
     $email = $_POST['mail'];
     $password = $_POST['pwd'];
     $passwordRepeat = $_POST['pwd-repeat'];
-
+    // check if anything is empty
     if (empty($username) || empty($email) || empty($password) || empty($passwordRepeat)) {
         header("Location: ../signup.php?error=emptyfields&uid=".$username."&mail=".$email);
         exit();
@@ -17,9 +18,9 @@ if (isset($_POST['signup-submit'])) {
         exit();
     }
     else if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        header("Location: ../signup.php?error=invalidmail&uid=".$username);
+        header("Location: ../signup.php?error=invalidmail&uid=".$username); // make sure its a e-mail FILTER_VALIDATE_EMAIL
         exit();
-    }
+    }       // search pattern for username what do we want to allow[a - z...]?
     else if (!preg_match("/^[a-zA-Z0-9]*$/", $username)) {
         header("Location: ../signup.php?error=invaliduid&mail=".$email);
         exit();
@@ -54,7 +55,7 @@ if (isset($_POST['signup-submit'])) {
                     exit();
                 }
                 else {
-                    $hashedPwd = password_hash($password, PASSWORD_DEFAULT);
+                    $hashedPwd = password_hash($password, PASSWORD_DEFAULT); //hashing the password into unreadeble phrasses
 
                     mysqli_stmt_bind_param($stmt, "sss", $username, $email, $hashedPwd);
                     mysqli_stmt_execute($stmt);
