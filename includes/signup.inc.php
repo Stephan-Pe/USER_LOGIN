@@ -31,9 +31,9 @@ if (isset($_POST['signup-submit'])) {
     }
     else {
 
-        $sql = "SELECT uidUsers FROM users WHERE uidUsers=?";
-        $stmt = mysqli_stmt_init($conn);
-        if (!mysqli_stmt_prepare($stmt, $sql)) {
+        $sql = "SELECT uidUsers FROM users WHERE uidUsers=?"; //? = Placeholder instead of username for safety reasons
+        $stmt = mysqli_stmt_init($conn);    
+        if (!mysqli_stmt_prepare($stmt, $sql)) {    // allways check for errors first
             header("Location: ../signup.php?error=sqlerror");
             exit();
         }
@@ -55,10 +55,10 @@ if (isset($_POST['signup-submit'])) {
                     exit();
                 }
                 else {
-                    $hashedPwd = password_hash($password, PASSWORD_DEFAULT); //hashing the password into unreadeble phrasses
+                    $hashedPwd = password_hash($password, PASSWORD_DEFAULT); //hashing the password into unreadable phrasses
 
-                    mysqli_stmt_bind_param($stmt, "sss", $username, $email, $hashedPwd);
-                    mysqli_stmt_execute($stmt);
+                    mysqli_stmt_bind_param($stmt, "sss", $username, $email, $hashedPwd);    // "sss" = depends on number of strings
+                    mysqli_stmt_execute($stmt);                                             // "b" would be for boolean "i" for integer
                     header("Location: ../signup.php?signup=success");
                     exit(); 
                 }
